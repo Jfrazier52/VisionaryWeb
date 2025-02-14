@@ -1,0 +1,88 @@
+/* Existing style for the "The Vision" text */
+#vision-title {
+    font-size: 2em;
+    font-style: italic;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(111, 111, 111, 0.5);
+    margin-bottom: 20px;
+  }
+  
+  /* Ensure the container is a positioning context and hide overflow */
+  #about {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Shooting star styling */
+  .shooting-star {
+    position: absolute;
+    z-index: 1; /* lower z-index so it sits behind the content */
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 150px; /* adjust for star size */
+    background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+    transform: rotate(180deg);
+    animation: shoot 4s ease-out infinite;
+  }
+  /* Additional shooting star delays */
+.shooting-star.star-2 {
+    animation-delay: 3s;
+  }
+  .shooting-star.star-3 {
+    animation-delay: 3s;
+  }
+  
+  
+  /* Make sure the content remains above the shooting star */
+  #vision-title,
+  .w3-image,
+  .w3-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Keyframes for the shooting star animation covering the whole section */
+  @keyframes shoot {
+    0% {
+      transform: translate(-10vw, -10vh) rotate(45deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(110vw, 110vh) rotate(45deg);
+      opacity: 0;
+    }
+  }
+  .animated-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #222;
+    color: #fff;
+    padding: 10px 0;
+    overflow: hidden;
+    z-index: 1000; /* Ensures the footer stays on top if needed */
+  }
+  
+  .animated-footer p {
+    display: inline-block;
+    white-space: nowrap;
+    /* Start the text off-screen to the right */
+    animation: slideFooter 30s linear infinite;
+    margin: 0;
+  }
+  
+  /* Keyframes to animate the footer text from right to left */
+  @keyframes slideFooter {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
